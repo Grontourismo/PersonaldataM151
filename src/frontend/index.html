@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <form method="post" action="../backend/insertNew.php">
+        <label>
+            Personaldata
+            <input required placeholder="Enter Lastname" name="lastname" type="text">
+            <input required placeholder="Enter Firstname" name="firstname" type="text">
+            <input required placeholder="Enter Date of Birth" name="dateOfBirth" type="text">
+            <input required placeholder="Enter Email" name="email" type="email">
+            <input required placeholder="Enter AHV" name="ahv" type="text">
+            <input required placeholder="Enter Personal Number" name="personalNr" type="text">
+            <input required placeholder="Enter Telefonnumber" name="telefonenr" type="tel">
+        </label>
+        <label>
+            Companydata
+            <br>
+            Department
+            <select required name="department">
+                <option value="HR">HR</option>
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Ressorce Managment">Ressorce Managment</option>
+            </select>
+            <br>
+            Job title
+            <select required name="jobTitle">
+                <option value="Computer Scientist">Computer Scientist</option>
+                <option value="Clerk">Clerk</option>
+                <option value="Mediamatist">Mediamatist</option>
+                <option value="Administration">Administration</option>
+            </select>
+            <textarea required placeholder="Enter Describtion" name="description"></textarea>
+        </label>
+        <button type="submit">Send</button>
+    </form>
+    <a href="../backend/show.php"><button>Show Personal Data</button></a>
+</div>
+</body>
+</html>
