@@ -18,56 +18,87 @@ $description;
 
 $html_Out = "
 <div>
-    <form method=\"post\" action=\"../backend/insertNew.php\">
+    <form method=\"post\" action=\"./updatePerson.php\">
         <label>
             Personaldata
             <br>
-            <input required placeholder=\"Enter Lastname\" name=\"lastname\" type=\"text\">
+            <input required value='$lastname' placeholder=\"Enter Lastname\" name=\"lastname\" type=\"text\">
             <br>
-            <input required placeholder=\"Enter Firstname\" name=\"firstname\" type=\"text\">
+            <input required value='$firstname' placeholder=\"Enter Firstname\" name=\"firstname\" type=\"text\">
             <br>
-            <input required placeholder=\"Enter Date of Birth\" name=\"dateOfBirth\" type=\"text\">
+            <input required value='$dateOfBirth' placeholder=\"Enter Date of Birth\" name=\"dateOfBirth\" type=\"text\">
             <br>
-            <input placeholder=\"Enter Email\" name=\"email\" type=\"email\">
+            <input value='$email' placeholder=\"Enter Email\" name=\"email\" type=\"email\">
             <br>
-            <input required placeholder=\"Enter AHV\" name=\"ahv\" type=\"text\">
+            <input value='$ahv' required placeholder=\"Enter AHV\" name=\"ahv\" type=\"text\">
             <br>
-            <input required placeholder=\"Enter Personal Number\" name=\"personalNr\" type=\"text\">
+            <input value='$personalNr' required placeholder=\"Enter Personal Number\" name=\"personalNr\" type=\"text\">
             <br>
-            <input placeholder=\"Enter Telefonnumber\" name=\"telefonenr\" type=\"tel\">
+            <input value='$telefonenr' placeholder=\"Enter Telefonnumber\" name=\"telefonenr\" type=\"tel\">
             <br>
         </label>
         <br>
         <label>
             Companydata
             <br>
-            <input placeholder=\"Enter Companyname\" name=\"companyName\" type=\"text\">
+            <input value='$companyName' placeholder=\"Enter Companyname\" name=\"companyName\" type=\"text\">
             <br>
             Department
             <br>
             <select required name=\"department\">
-                <option value=\"HR\">HR</option>
-                <option value=\"IT\">IT</option>
-                <option value=\"Marketing\">Marketing</option>
-                <option value=\"Ressorce Managment\">Ressorce Managment</option>
+            ";
+
+switch ($department) {
+    case "HR":
+        $html_Out = $html_Out . "<option value=\"HR\">HR</option>";
+        break;
+    case "IT":
+        $html_Out = $html_Out . "<option value=\"IT\">IT</option>";
+        break;
+    case "Marketing":
+        $html_Out = $html_Out . "<option value=\"Marketing\">Marketing</option>";
+        break;
+    case "Ressorce Managment":
+        $html_Out = $html_Out . "<option value=\"Ressorce Managment\">Ressorce Managment</option>";
+        break;
+}
+
+$html_Out = $html_Out . "
             </select>
             <br>
             Job title
             <br>
             <select required name=\"jobTitle\">
-                <option value=\"Computer Scientist\">Computer Scientist</option>
-                <option value=\"Clerk\">Clerk</option>
-                <option value=\"Mediamatist\">Mediamatist</option>
-                <option value=\"Administration\">Administration</option>
+            ";
+
+switch ($jobTitle) {
+    case "Computer Scientist":
+        $html_Out = $html_Out . "<option value=\"Computer Scientist\">Computer Scientist</option>";
+        break;
+    case "Clerk":
+        $html_Out = $html_Out . "<option value=\"Clerk\">Clerk</option>";
+        break;
+    case "Mediamatist":
+        $html_Out = $html_Out . "<option value=\"Mediamatist\">Mediamatist</option>";
+        break;
+    case "Administration":
+        $html_Out = $html_Out . "<option value=\"Administration\">Administration</option>";
+        break;
+}
+
+$html_Out = $html_Out . "
             </select>
             <br>
             <textarea placeholder=\"Enter Describtion\" name=\"description\"></textarea>
         </label>
         <br>
         <button type=\"submit\">Send</button>
+        <br>
+        <a href=\"./delete.php?id=$id\"><button>Delete Person</button></a>
+        <a href=\"./show.php\"><button>Cancel</button></a>
     </form>
-    <br>
-    <a href=\"../backend/show.php\"><button>Show Personal Data</button></a>
 </div>
 ";
+
+echo $html_Out;
 
