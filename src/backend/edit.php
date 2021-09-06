@@ -3,24 +3,28 @@ $html_Out = "";
 $id = $_GET["id"];
 
 //get Persondata from view by id
+$data = [];
 
-$lastname;
-$firstname;
-$dateOfBirth;
-$email;
-$ahv;
-$personalNr;
-$telefonenr;
-$companyName;
-$department;
-$jobTitle;
-$description;
+$id = $data["id"];
+$lastname = $data["Lastname"];
+$firstname = $data["Firstname"];
+$dateOfBirth = $data["Birth_Date"];
+$email = $data["EMail"];
+$ahv = $data["AHV_Number"];
+$personalNr = $data["Personal_Number"];
+$telefonenr = $data["Tel"];
+$companyName = $data["Company"];
+$department = $data["Department"];
+$jobTitle = $data["Job_Title"];
+$description = $data["Description"];
 
 $html_Out = "
 <div>
     <form method=\"post\" action=\"./updatePerson.php\">
         <label>
             Personaldata
+            <br>
+            <p>ID: $id</p>
             <br>
             <input required value='$lastname' placeholder=\"Enter Lastname\" name=\"lastname\" type=\"text\">
             <br>
@@ -50,16 +54,28 @@ $html_Out = "
 
 switch ($department) {
     case "HR":
-        $html_Out = $html_Out . "<option value=\"HR\">HR</option>";
+        $html_Out = $html_Out . "<option selected value=\"HR\">HR</option>";
+        $html_Out = $html_Out . "<option value=\"IT\">IT</option>";
+        $html_Out = $html_Out . "<option value=\"Marketing\">Marketing</option>";
+        $html_Out = $html_Out . "<option value=\"Ressorce Managment\">Ressorce Managment</option>";
         break;
     case "IT":
-        $html_Out = $html_Out . "<option value=\"IT\">IT</option>";
+        $html_Out = $html_Out . "<option selected value=\"IT\">IT</option>";
+        $html_Out = $html_Out . "<option value=\"Marketing\">Marketing</option>";
+        $html_Out = $html_Out . "<option value=\"Ressorce Managment\">Ressorce Managment</option>";
+        $html_Out = $html_Out . "<option value=\"HR\">HR</option>";
         break;
     case "Marketing":
-        $html_Out = $html_Out . "<option value=\"Marketing\">Marketing</option>";
+        $html_Out = $html_Out . "<option selected value=\"Marketing\">Marketing</option>";
+        $html_Out = $html_Out . "<option value=\"Ressorce Managment\">Ressorce Managment</option>";
+        $html_Out = $html_Out . "<option value=\"HR\">HR</option>";
+        $html_Out = $html_Out . "<option value=\"IT\">IT</option>";
         break;
     case "Ressorce Managment":
-        $html_Out = $html_Out . "<option value=\"Ressorce Managment\">Ressorce Managment</option>";
+        $html_Out = $html_Out . "<option selected value=\"Ressorce Managment\">Ressorce Managment</option>";
+        $html_Out = $html_Out . "<option value=\"HR\">HR</option>";
+        $html_Out = $html_Out . "<option value=\"IT\">IT</option>";
+        $html_Out = $html_Out . "<option value=\"Marketing\">Marketing</option>";
         break;
 }
 
@@ -73,16 +89,28 @@ $html_Out = $html_Out . "
 
 switch ($jobTitle) {
     case "Computer Scientist":
-        $html_Out = $html_Out . "<option value=\"Computer Scientist\">Computer Scientist</option>";
+        $html_Out = $html_Out . "<option selected value=\"Computer Scientist\">Computer Scientist</option>";
+        $html_Out = $html_Out . "<option value=\"Clerk\">Clerk</option>";
+        $html_Out = $html_Out . "<option value=\"Mediamatist\">Mediamatist</option>";
+        $html_Out = $html_Out . "<option value=\"Administration\">Administration</option>";
         break;
     case "Clerk":
-        $html_Out = $html_Out . "<option value=\"Clerk\">Clerk</option>";
+        $html_Out = $html_Out . "<option selected value=\"Clerk\">Clerk</option>";
+        $html_Out = $html_Out . "<option value=\"Mediamatist\">Mediamatist</option>";
+        $html_Out = $html_Out . "<option value=\"Administration\">Administration</option>";
+        $html_Out = $html_Out . "<option value=\"Computer Scientist\">Computer Scientist</option>";
         break;
     case "Mediamatist":
-        $html_Out = $html_Out . "<option value=\"Mediamatist\">Mediamatist</option>";
+        $html_Out = $html_Out . "<option selected value=\"Mediamatist\">Mediamatist</option>";
+        $html_Out = $html_Out . "<option value=\"Administration\">Administration</option>";
+        $html_Out = $html_Out . "<option value=\"Computer Scientist\">Computer Scientist</option>";
+        $html_Out = $html_Out . "<option value=\"Clerk\">Clerk</option>";
         break;
     case "Administration":
-        $html_Out = $html_Out . "<option value=\"Administration\">Administration</option>";
+        $html_Out = $html_Out . "<option selected value=\"Administration\">Administration</option>";
+        $html_Out = $html_Out . "<option value=\"Computer Scientist\">Computer Scientist</option>";
+        $html_Out = $html_Out . "<option value=\"Clerk\">Clerk</option>";
+        $html_Out = $html_Out . "<option value=\"Mediamatist\">Mediamatist</option>";
         break;
 }
 

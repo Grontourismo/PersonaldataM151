@@ -10,3 +10,5 @@ $companyName = $_POST["companyName"];
 $department = $_POST["department"];
 $jobTitle = $_POST["jobTitle"];
 $description = $_POST["description"];
+
+//Update in DB

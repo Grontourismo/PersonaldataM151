@@ -1,6 +1,6 @@
 <?php
 $html_out = "";
-//get persons from
+//get persons from DB
 $data = [];
 
 //write Persons in Table
