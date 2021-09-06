@@ -6,4 +6,4 @@ BEGIN
 	inner join Companies c on c.Id = p.Company_fk
 	inner join Departments d on d.Id = p.Department_fk
 END
---
+--d
