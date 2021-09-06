@@ -19,7 +19,7 @@ BEGIN
 		INSERT INTO dbo.Companies 
 		select @Company_Name
 	END
---
+--,
 	IF NOT EXISTS (select Department_Name from dbo.Departments where Department_Name = @Department_Name)
 	BEGIN
 		INSERT INTO dbo.Departments 
