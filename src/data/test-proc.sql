@@ -16,7 +16,7 @@ exec dbo.InsertAllData
 
 	--delete from Companies
 	--DBCC CHECKIDENT (Companies, reseed, 0)
---df
+--d
 	select * from dbo.Persons
 	select * from dbo.Companies
 	select * from dbo.Departments

@@ -12,7 +12,7 @@ CREATE TABLE Departments (
 
 	PRIMARY KEY (Id)
 )
---df
+--d
 CREATE TABLE Persons (
 	Id int identity(1,1),
 	Lastname varchar(255),
