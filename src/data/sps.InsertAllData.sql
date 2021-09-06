@@ -26,10 +26,13 @@ BEGIN
 		select @Department_Name
 	END
 
-	INSERT INTO dbo.Persons
-	select @Lastname, @Firstname, @Birth_Date, @EMail, @AHV_Number, @Personal_Number, @Tel, 
-	c.Id, d.Id,
-	@Job_Title, @Job_Description
-	from dbo.Companies c, dbo.Departments d
-	where c.Company_Name = @Company_Name AND d.Department_Name = @Department_Name
+	IF NOT EXISTS (select Personal_Number from Persons where Personal_Number = @Personal_Number)
+	BEGIN
+		INSERT INTO dbo.Persons
+		select @Lastname, @Firstname, @Birth_Date, @EMail, @AHV_Number, @Personal_Number, @Tel, 
+		c.Id, d.Id,
+		@Job_Title, @Job_Description
+		from dbo.Companies c, dbo.Departments d
+		where c.Company_Name = @Company_Name AND d.Department_Name = @Department_Name
+	END
 END
