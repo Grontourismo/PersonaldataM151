@@ -3,5 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/DAL/MSSQL/sps.InsertAllData.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/DAL/MariaDB/sps.DeletePerson.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/DAL/MariaDB/sps.UpdatePerson.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/data/MariaDB/dump.sql" dialect="MariaDB" />
   </component>
 </project>
