@@ -1,10 +1,13 @@
 <?php
+require_once("./include/db_connection.php");
+
 $html_out = "";
 //get persons from DB
-$data = [];
+$data = $dbconn->query("EXEC SelectAllPersons");
 
 //write Persons in Table
 $html_out = "
+<a href='../frontend/index.html'><button>New</button></a>
 <table>
     <thead>
         <tr>
