@@ -31,7 +31,7 @@ BEGIN
 	AHV_Number = @AHV_Number,
 	Tel = @Tel,
 	Company_fk = (select Id from dbo.Companies where Company_Name = @Company_Name),
-	Department_fk = (select Id from dbo.Departments where Department_Name = @Company_Name),
+	Department_fk = (select Id from dbo.Departments where Department_Name = @Department_Name),
 	Job_Title = @Job_Title,
 	Job_Description = @Job_Description
 	WHERE Personal_Number = @Personal_Number
