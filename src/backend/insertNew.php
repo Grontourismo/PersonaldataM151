@@ -12,3 +12,5 @@ $jobTitle = $_POST["jobTitle"];
 $description = $_POST["description"];
 
 //save Data in DB
+
+header('Location: show.php');
