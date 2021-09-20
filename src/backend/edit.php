@@ -1,11 +1,12 @@
 <?php
+
 $html_Out = "";
-$id = $_GET["id"];
+$id = $_GET["Id"];
 
 //get Persondata from view by id
 $data = [];
 
-$id = $data["id"];
+$id = $data["Id"];
 $lastname = $data["Lastname"];
 $firstname = $data["Firstname"];
 $dateOfBirth = $data["Birth_Date"];
@@ -13,7 +14,7 @@ $email = $data["EMail"];
 $ahv = $data["AHV_Number"];
 $personalNr = $data["Personal_Number"];
 $telefonenr = $data["Tel"];
-$companyName = $data["Company"];
+$companyName = $data["Company_Name"];
 $department = $data["Department"];
 $jobTitle = $data["Job_Title"];
 $description = $data["Description"];
