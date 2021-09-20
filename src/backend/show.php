@@ -28,7 +28,7 @@ $html_out = "
 ";
 
 foreach ($data as $person) {
-    $id = $person["id"];
+    $id = $person["Id"];
     $lastname = $person["Lastname"];
     $firstname = $person["Firstname"];
     $dateOfBirth = $person["Birth_Date"];
@@ -36,7 +36,7 @@ foreach ($data as $person) {
     $ahv = $person["AHV_Number"];
     $personalNr = $person["Personal_Number"];
     $telefonenr = $person["Tel"];
-    $company = $person["Company"];
+    $company = $person["Company_Name"];
     $jobTitle = $person["Job_Title"];
 
     $html_out = $html_out."
