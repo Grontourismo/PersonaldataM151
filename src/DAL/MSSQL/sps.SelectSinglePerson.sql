@@ -1,5 +1,5 @@
 --
-ALTER PROCEDURE dbo.SelectSinglePerson
+ALTER PROCEDURE SelectSinglePerson
 @Id int
 
 AS

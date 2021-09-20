@@ -1,43 +1,44 @@
 <?php
+require_once("./include/db_connection.php");
 
 $html_Out = "";
-$id = $_GET["Id"];
+$id = $_GET["id"];
 
 //get Persondata from view by id
-$data = [];
+$data = $dbconn->query("EXEC SelectSinglePerson @Id=" . $id);
 
-$id = $data["Id"];
-$lastname = $data["Lastname"];
-$firstname = $data["Firstname"];
-$dateOfBirth = $data["Birth_Date"];
-$email = $data["EMail"];
-$ahv = $data["AHV_Number"];
-$personalNr = $data["Personal_Number"];
-$telefonenr = $data["Tel"];
-$companyName = $data["Company_Name"];
-$department = $data["Department"];
-$jobTitle = $data["Job_Title"];
-$description = $data["Description"];
+foreach ($data as $person) {
+    $id = $person["Id"];
+    $lastname = $person["Lastname"];
+    $firstname = $person["Firstname"];
+    $dateOfBirth = $person["Birth_Date"];
+    $email = $person["EMail"];
+    $ahv = $person["AHV_Number"];
+    $personalNr = $person["Personal_Number"];
+    $telefonenr = $person["Tel"];
+    $companyName = $person["Company_Name"];
+    $department = $person["Department_Name"];
+    $jobTitle = $person["Job_Title"];
+    $description = $person["Job_Description"];
+}
 
 $html_Out = "
 <div>
     <form method=\"post\" action=\"./updatePerson.php\">
         <label>
             Personaldata
-            <br>
             <p>ID: $id</p>
-            <br>
             <input required value='$lastname' placeholder=\"Enter Lastname\" name=\"lastname\" type=\"text\">
             <br>
             <input required value='$firstname' placeholder=\"Enter Firstname\" name=\"firstname\" type=\"text\">
             <br>
-            <input required value='$dateOfBirth' placeholder=\"Enter Date of Birth\" name=\"dateOfBirth\" type=\"text\">
+            <input required value='$dateOfBirth' placeholder=\"Enter Date of Birth\" name=\"dateOfBirth\" type=\"date\">
             <br>
             <input value='$email' placeholder=\"Enter Email\" name=\"email\" type=\"email\">
             <br>
             <input value='$ahv' required placeholder=\"Enter AHV\" name=\"ahv\" type=\"text\">
             <br>
-            <input value='$personalNr' required placeholder=\"Enter Personal Number\" name=\"personalNr\" type=\"text\">
+            <input value='$personalNr' readonly required placeholder=\"Enter Personal Number\" name=\"personalNr\" type=\"text\">
             <br>
             <input value='$telefonenr' placeholder=\"Enter Telefonnumber\" name=\"telefonenr\" type=\"tel\">
             <br>
@@ -118,12 +119,11 @@ switch ($jobTitle) {
 $html_Out = $html_Out . "
             </select>
             <br>
-            <textarea placeholder=\"Enter Describtion\" name=\"description\"></textarea>
+            <textarea placeholder=\"Enter Describtion\" name=\"description\">$description</textarea>
         </label>
         <br>
         <button type=\"submit\">Send</button>
         <br>
-        <a href=\"./delete.php?id=$id\"><button>Delete Person</button></a>
         <a href=\"./show.php\"><button>Cancel</button></a>
     </form>
 </div>
