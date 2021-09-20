@@ -4,7 +4,7 @@ require_once("./include/db_connection.php");
 $html_Out = "";
 $id = $_GET["id"];
 
-//get Persondata from view by id
+//get Persondata from view by Id
 $data = $dbconn->query("EXEC SelectSinglePerson @Id=" . $id);
 
 foreach ($data as $person) {
